@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementAndInfo : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float playerSpeed;
     Vector2 movement;
+    public float point;
 
     private void Update()
     {

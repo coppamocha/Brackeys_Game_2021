@@ -5,34 +5,20 @@ using UnityEngine.UI;
 
 public class GarbageCollect : MonoBehaviour
 {
-    public Text text;
-    public GameObject gb;
-    bool collided = false;
+    public PlayerMovementAndInfo player;
 
+    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && collided)
-        {
-            Destroy(gb);
-        }
-        if (!collided)
-        {
-            text.text = "";
-        }
+
     }
-    
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    void OnTriggerEnter2D(Collider2D other)
     {
-        GameObject player = collision.collider.gameObject;
-        if (player.GetComponent<PlayerMovementAndInfo>())
+        if (other.gameObject.CompareTag("Player"))
         {
-            text.text = "Press E To Remove It";
-            collided = true;
-        }
-        else
-        {
-            Debug.Log("WTF why not");
-            collided = false;
+            if(Input.GetKey(KeyCode.E))
+            Destroy(gameObject);
         }
     }
 }

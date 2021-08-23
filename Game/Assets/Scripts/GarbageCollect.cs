@@ -27,10 +27,12 @@ public class GarbageCollect : MonoBehaviour
         if (player.GetComponent<PlayerMovementAndInfo>())
         {
             text.text = "Press E To Remove It";
+            collided = true;
         }
         else
         {
             Debug.Log("WTF why not");
+            collided = false;
         }
     }
 }
